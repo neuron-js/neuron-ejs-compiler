@@ -1,0 +1,28 @@
+{
+  "name": "neuron-ejs-compiler",
+  "version": "1.0.0",
+  "description": "neuron-ejs-compiler",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec ./test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neuron-js/neuron-ejs-compiler.git"
+  },
+  "keywords": [
+    "neuron-ejs-compiler"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "author": "neuron-js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neuron-js/neuron-ejs-compiler/issues"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  }
+}
