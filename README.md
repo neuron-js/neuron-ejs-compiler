@@ -11,7 +11,7 @@
 
 # neuron-ejs-compiler
 
-<!-- description -->
+The ejs compiler module for neuron
 
 ## Install
 
@@ -22,8 +22,33 @@ $ npm install neuron-ejs-compiler --save
 ## Usage
 
 ```js
-var neuron_ejs_compiler = require('neuron-ejs-compiler');
+var ejs_compiler = require('neuron-ejs-compiler');
+var builder = require('neuron-builder');
+
+builder(entry, {
+  pkg: pkg,
+  cwd: cwd,
+  compilers: [{
+    test: /\.ejs$/,
+    compiler: ejs_compiler,
+    options: ejs_options
+  }]
+}, function(err, content){
+  // if no `err`, `content` will be the bundled content.
+});
 ```
+
+see [neuron-builder](https://www.npmjs.com/package/neuron-builder) for more details.
+
+### `ejs_options`
+
+Default specified options for `jade`
+
+- filename: will always be the filename of the current file
+- compileDebug: `false`
+- rmWhitespace: `true` removes all safe-to-remove whitespace.
+
+Other options are not set by default, see [here](http://jade-lang.com/api/) for details
 
 ## License
 

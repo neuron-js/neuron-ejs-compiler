@@ -1,7 +1,7 @@
 {
   "name": "neuron-ejs-compiler",
   "version": "1.0.0",
-  "description": "neuron-ejs-compiler",
+  "description": "The ejs compiler module for neuron",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec ./test/*.js"
@@ -11,7 +11,12 @@
     "url": "git://github.com/neuron-js/neuron-ejs-compiler.git"
   },
   "keywords": [
-    "neuron-ejs-compiler"
+    "neuron-ejs-compiler",
+    "ejs",
+    "builder",
+    "compiler",
+    "neuron",
+    "task"
   ],
   "engines": {
     "node": ">=0.10.0"
@@ -24,5 +29,9 @@
   "devDependencies": {
     "mocha": "*",
     "chai": "*"
+  },
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "mix2": "^1.0.1"
   }
 }
