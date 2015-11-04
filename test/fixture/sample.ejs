@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+  <h1><%= require('./a').title %></h1>
+  <% users.forEach(function(user){ %>
+    <%- include('user', {user: user}) %>
+  <% }); %>
+</body>
+</html>
