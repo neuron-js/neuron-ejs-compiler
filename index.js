@@ -14,8 +14,12 @@ var mix = require('mix2');
 function compile (content, options, callback) {
   options = mix({
     compileDebug: false,
-    rmWhitespace: true
+    rmWhitespace: true,
+    _with: false,
+    strict: true
   }, options);
+
+  ejs.localsName = options.localsName || 'it'
 
   // force `options.client` to `true` to build a standalone compiled function
   options.client = true;
