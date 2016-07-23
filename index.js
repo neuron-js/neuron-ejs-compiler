@@ -1,37 +1,39 @@
-'use strict';
+'use strict'
 
-module.exports = compile;
+module.exports = compile
 
-var ejs = require('ejs');
-var mix = require('mix2');
+const ejs = require('ejs')
+const set = require('set-options')
 
-// var COMMONJS_TEMPLATE = ''
-
-// module.exports = function(locals){
-//   <%-  %>
-// }
+const DEFAULT_OPTIONS = {
+  compileDebug: false,
+  rmWhitespace: true,
+  _with: false,
+  strict: true
+}
 
 function compile (content, options, callback) {
-  options = mix({
-    compileDebug: false,
-    rmWhitespace: true,
-    _with: false,
-    strict: true
-  }, options);
+  options = set(options, DEFAULT_OPTIONS)
 
   ejs.localsName = options.localsName || 'it'
 
   // force `options.client` to `true` to build a standalone compiled function
-  options.client = true;
+  options.client = true
+
+  let result
 
   try {
-    var result = ejs.compile(content, options);
+    result = ejs.compile(content, options).toString()
   } catch(e) {
-    return callback(e);
+    return callback(e)
   }
 
+  let code = `module.exports = anonymous;\n${result}`
+
   callback(null, {
-    content: 'module.exports = anonymous;\n' + result.toString(),
+    code,
+    // map: ejs does not support sourcemap yet
+    // ast: actually, ejs have no ast
     js: true
-  });
+  })
 }

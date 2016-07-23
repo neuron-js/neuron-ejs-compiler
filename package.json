@@ -1,6 +1,6 @@
 {
   "name": "neuron-ejs-compiler",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "The ejs compiler module for neuron",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "chai": "*"
   },
   "dependencies": {
-    "ejs": "^2.3.4",
-    "mix2": "^1.0.1"
+    "set-options": "^2.0.1",
+    "ejs": "^2.3.4"
   }
 }
